@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Expand and Collapse Text on Scroll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #009688;
+  height: 200vh;
+  font-family: 'Inconsolata', monospace;
+}
+.text-item {
+  position: fixed;
+  top: 50%;
+  left: 48%;
+  transform: translateX(-50%) translateY(-50%);
+  list-style: none;
+  border-bottom: 0;
+  letter-spacing: 2px;
+}
+
+.text-item.hidden {
+  border-bottom: 1px solid #fff;
+}
+
+.text-item li {
+  display: block;
+  float: left;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  opacity: 1;
+  transition: all 1.5s ease-in;
+  max-width: 2em;
+}
+.text-item.hidden li.spaced {
+  padding-left: 0;
+}
+.text-item li.spaced {
+  padding-left: 0.5em;
+}
+
+.text-item.hidden li.shade {
+  opacity: 0;
+  max-width: 0;
+}
+  </style>
+</head>
+<body>
+    <ul class="text-item hidden">
+        <li>C</li>
+        <li class="shade">O</li>
+        <li class="shade">L</li>
+        <li class="shade">A</li>
+        <li class="shade">P</li>
+        <li class="shade">S</li>
+        <li class="shade">E</li>
+
+        <li class="spaced">A</li>
+        <li class="shade">N</li>
+        <li class="shade">D</li>
+
+        <li class="spaced">E</li>
+        <li class="shade">X</li>
+        <li class="shade">P</li>
+        <li class="shade">A</li>
+        <li class="shade">N</li>
+        <li class="shade">D</li>
+
+        <li class="spaced">T</li>
+        <li class="shade">E</li>
+        <li class="shade">X</li>
+        <li class="shade">T</li>
+
+        <li class="spaced">O</li>
+        <li class="shade">N</li>
+        <li class="spaced">S</li>
+        <li class="shade">C</li>
+        <li class="shade">R</li>
+        <li class="shade">O</li>
+        <li class="shade">L</li> 
+        <li class="shade">L</li>             
+        </ul>
+
+        <script>
+        $(function() {
+            var text = $(".text-item");
+             $(window).scroll(function() {   
+                 if ($(window).scrollTop() >= 100) {
+                     text.removeClass("hidden");
+            }    else {
+                     text.addClass("hidden");
+            }
+        });
+        });
+
+        </script>
+</body>
+</html>
